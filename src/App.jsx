@@ -11,7 +11,7 @@ import { WatchedSummary } from "./Components/WatchedSummary";
 import { WatchedMovieList } from "./Components/WatchedMovieList";
 import { ErrorMessage } from "./Components/ErrorMessage";
 
-export const Api_key = import.meta.env.VITE_API_KEY;
+export const Api_key = process.env.VITE_API_KEY;
 
 export default function App() {
   const data = JSON.parse(localStorage.getItem("data"))?.watched;

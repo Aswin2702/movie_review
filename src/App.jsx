@@ -11,7 +11,7 @@ import { WatchedSummary } from "./Components/WatchedSummary";
 import { WatchedMovieList } from "./Components/WatchedMovieList";
 import { ErrorMessage } from "./Components/ErrorMessage";
 
-export const Api_key = import.meta.VITE_VERCEL_APIKEY;
+export const Api_key = process.env.VITE_VERCEL_APIKEY;
 
 export default function App() {
   const data = JSON.parse(localStorage.getItem("data"))?.watched;

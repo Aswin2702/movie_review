@@ -14,10 +14,12 @@ import { ErrorMessage } from "./Components/ErrorMessage";
 export const Api_key = import.meta.env.VITE_APIKEY;
 
 export default function App() {
-  const data = JSON.parse(localStorage.getItem("data"))?.watched;
   const [query, setQuery] = useState("avengers");
   const [movies, setMovies] = useState([]);
-  const [watched, setWatched] = useState(data ? data : []);
+  const [watched, setWatched] = useState(() => {
+    const storedData = JSON.parse(localStorage.getItem("data"));
+    return storedData;
+  });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [selectedId, setSelectedId] = useState(null);
@@ -36,6 +38,10 @@ export default function App() {
   function handleDeleteWatched(id) {
     setWatched((watched) => watched.filter((movie) => movie.imdbID !== id));
   }
+
+  useEffect(() => {
+    localStorage.setItem("data", JSON.stringify(watched));
+  }, [watched]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -80,8 +86,6 @@ export default function App() {
       controller.abort();
     };
   }, [query]);
-
-  localStorage.setItem("data", JSON.stringify({ watched: watched }));
 
   return (
     <>

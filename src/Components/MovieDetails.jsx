@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import StarRating from "./StarRating";
-import { Api_key } from "../App";
 import { Loader2 } from "./Loader2";
+
+const Api_key = import.meta.env.VITE_APIKEY;
 
 export function MovieDetails({
   selectedId,

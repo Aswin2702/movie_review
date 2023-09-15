@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import StarRating from "./StarRating";
 import { Loader2 } from "./Loader2";
 
-const Api_key = import.meta.env.VITE_APIKEY;
+const Api_key = import.meta.env.VITE_VERCEL_APIKEY;
 
 export function MovieDetails({
   selectedId,

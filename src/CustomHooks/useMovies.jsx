@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const Api_key = import.meta.env.VITE_APIKEY;
+const Api_key = import.meta.env.VITE_VERCEL_APIKEY;
 
 export default function useMovies(query) {
   const [isLoading, setIsLoading] = useState(false);
